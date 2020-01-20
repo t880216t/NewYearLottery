@@ -1,5 +1,6 @@
 
 NewYearLottery 是一个基于react + dva + antd开发的WEB版抽奖系统。
+<img src="./resource/lottery.gif" width = "600" height = "400" alt="" align=center></img>
 
 # 安装
 ```bash
@@ -16,13 +17,13 @@ $ npm start
 # 使用步骤
 主页左下角有个隐藏的设置按钮
 
-![](./resource/settingbutton.png)
-![](./resource/settinglist.png)
+<img src="./resource/settingbutton.png" width = "300" height = "300" alt="" align=center></img>
+<img src="./resource/settinglist.png" width = "300" height = "300" alt="" align=center></img>
 
 ## 1.导入抽奖用户
 用户名单的模板在项目文件中“NewYearLottery/resource/员工名单.xlsx”，根据自己的实际情况后修改后，进入用户管理页面“上传表单”
 
-![](./resource/userdata.png)
+<img src="./resource/userdata.png" width = "600" height = "400" alt="" align=center></img>
 
 上传后可以自行编辑用户表单。
 
@@ -30,7 +31,7 @@ $ npm start
 ## 2.添加奖品设置
 点击“奖品设置”设置奖品信息，这里的会根据权重来安排抽奖顺序（**<big>按数字从小到大</big>**），会根据数量设置来安排每次的抽奖人数（请保证最终获奖的人数小于等于总抽奖人数）。
 
-![](./resource/rewardsetting.png)
+<img src="./resource/rewardsetting.png" width = "600" height = "400" alt="" align=center></img>
 
 ## 3.开始抽奖
 
@@ -38,11 +39,10 @@ $ npm start
 
 > 注意：开始抽奖后请勿刷新页面，否则将<font color=red>重头开始抽奖活动</font>
 
-![](./resource/lottery.gif)
 
 # 设计思想
 
-本应用完全独立的前端应用，不涉及后端交互。所以部署后，每个人看到界面的虽是一样，但每个人的数据是不同的，奖品及人员信息都在管理的session storage中，这样也避免了接口安全问题。
+本应用是完全独立的前端应用，不涉及后端交互。所以部署后，每个人看到界面的虽是一样，但每个人的数据是不同的，奖品及人员信息都在管理的session storage中，这样也避免了接口安全问题。
 
 # 核心代码
 应用使用dva管理数据流，核心的数据方法都在“NewYearLottery/src/models/lottery.js”中。
