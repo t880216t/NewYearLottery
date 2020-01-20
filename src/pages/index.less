@@ -1,0 +1,105 @@
+
+.normal {
+  font-family: Georgia, sans-serif;
+}
+.contentContainer{
+  height: 95vh;
+  .actionContain{
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    .headContain{
+      flex: 1;
+      .depTitle{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        img{
+          height: 200px;
+          width: 400px;
+        }
+        span{
+          font-family:华文琥珀;
+          font-size: 30px;
+          color: #ffbe76;
+          text-transform : uppercase;
+        }
+      }
+    }
+    .middleContain{
+      flex: 3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .footContain{
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+.listContainer{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+.lotteryContainer{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  span{
+    white-space : nowrap;
+  }
+}
+.lotteryName{
+  font-size: 50px;
+  color: #fff200;
+}
+.reward {
+  font-size: 40px;
+  color: #fad390;
+  margin-bottom: 20px;
+}
+.rollButton{
+  height: 70px;
+  font-size: 35px;
+  font-weight: bold;
+  background-color: #fff200 !important;
+  border-color: #fff200 !important;
+  z-index: 999;
+}
+.rewarderContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.depContent{
+  font-family:华文琥珀;
+  font-size: 30px;
+  color: #ffbe76;
+  text-transform : uppercase;
+  margin-top: 20px;
+}
+.showDrawerButton{
+  background-color: rgba(0,0,0,0);
+  border: none;
+}
+.linkList{
+  display: flex;
+  flex-direction: column;
+}
+.drawerContainer{
+  :global{
+    .ant-drawer-body{
+      padding: 0 !important;
+    }
+  }
+}
