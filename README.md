@@ -18,7 +18,7 @@ $ npm start
 主页左下角有个隐藏的设置按钮
 
 <img src="./resource/settingbutton.png" width = "200" height = "300" alt="" align=center></img>
-<img src="./resource/settinglist.png" width = "200" height = "300" alt="" align=center></img>
+<img src="./resource/settinglist.png" width = "300" height = "200" alt="" align=center></img>
 
 ## 1.导入抽奖用户
 用户名单的模板在项目文件中“NewYearLottery/resource/员工名单.xlsx”，根据自己的实际情况后修改后，进入用户管理页面“上传表单”
