@@ -1,6 +1,7 @@
 
-NewYearLottery 是一个基于react + dva + antd开发的WEB版抽奖系统。
 <img src="./resource/lottery.gif" width = "600" height = "400" alt="" align=center></img>
+
+NewYearLottery 是一个基于react + dva + antd开发的WEB版抽奖系统。
 
 # 安装
 ```bash
