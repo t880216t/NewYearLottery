@@ -3,6 +3,9 @@ import router from 'umi/router';
 import fireworks from 'react-fireworks';
 import { Button, Drawer, Menu, Icon, Row, Col } from 'antd';
 import { connect } from 'dva';
+import io from 'socket.io-client';
+import BulletScreen, { StyledBullet } from 'rc-bullets';
+
 
 import styles from './index.less';
 import yearImg from '../assets/2020.png';
@@ -21,6 +24,8 @@ class Index extends Component {
       userData: [],
       rewardData: [],
     };
+    this.screen = null;
+    this.socket = null;
   }
 
   componentDidMount() {
@@ -29,8 +34,17 @@ class Index extends Component {
     })
       .then(() => {
         const { userData, rewardData } = this.props.lottery;
-        this.setState({ userData, rewardData });
+        this.setState({ userData, rewardData }, () => {
+          this.syncMessage()
+        });
       });
+    this.screen = new BulletScreen('.screen', { duration: 20 });
+  }
+
+  componentWillUnmount() {
+    if (this.socket){
+      this.socket.close();
+    }
   }
 
   showDrawer = () => {
@@ -107,6 +121,43 @@ class Index extends Component {
       return list
     }
     return <div></div>
+  }
+
+  syncMessage = () => {
+    if (!this.socket){
+      const host = window.location.host;
+      this.socket = io(`ws://${host}`);
+    }
+    this.socket.on('connect', () => {
+      console.log('<= 连接服务器成功！');
+    });
+    this.socket.on('disconnect', () => {
+      console.log('=> 断开服务器成功！');
+    });
+    this.socket.on('server_response', (data) => {
+      if (data && data.code === 0 && data.command === 'sync_message' && this.screen){
+        console.log('data.content.type', data.content.type)
+        if (data.content.type === 'Text'){
+          this.screen.push(
+            <StyledBullet
+              head={data.content.avatar}
+              msg={data.content.text}
+              color='#1C2833'
+              backgroundColor={'#b2e281'}
+              size='large'
+            />
+          )
+        }else {
+          this.screen.push({
+            msg: '[不支持的消息，可在手机上查看]',
+            head: data.content.avatar,
+            color: '#1C2833',
+            size: 'large',
+            backgroundColor: '#b2e281',
+          });
+        }
+      }
+    });
   }
 
   render() {
@@ -187,6 +238,9 @@ class Index extends Component {
             )}
           </Col>
         </Row>
+        <div className={styles.push_wrapper} style={{ bottom: '30vh' }}>
+          <div className="screen" style={{ width: '100vw', height: '80vh' }}></div>
+        </div>
         <Button className={styles.showDrawerButton} onClick={() => this.showDrawer()}></Button>
         <Drawer
           title="抽奖设置"

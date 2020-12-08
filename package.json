@@ -10,9 +10,11 @@
   "dependencies": {
     "antd": "^3.19.5",
     "dva": "^2.6.0-beta.6",
+    "rc-bullets": "^1.5.12",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-fireworks": "^1.0.4",
+    "socket.io-client": "^2.3.0",
     "xlsx": "^0.15.4"
   },
   "devDependencies": {
@@ -25,6 +27,7 @@
     "eslint-plugin-react": "^7.11.1",
     "husky": "^0.14.3",
     "lint-staged": "^7.2.2",
+    "rc-bullets": "^1.5.12",
     "react-test-renderer": "^16.7.0",
     "umi": "^2.7.7",
     "umi-plugin-react": "^1.8.4"
