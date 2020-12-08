@@ -93,11 +93,15 @@ class Index extends Component {
       }
       const list = (
         <div className={styles.listContainer}>
-          {newArr.map(item => (
-            <div className={styles.lotteryContainer} key={item}>
-              <span className={styles.lotteryName}>{luckyGuies[item].name}</span>
-            </div>
-          ))}
+          {newArr.map(item => {
+            if (item < luckyGuies.length) {
+              return (
+                <div className={styles.lotteryContainer} key={item}>
+                  <span className={styles.lotteryName}>{luckyGuies[item].name}</span>
+                </div>
+              )
+            }
+          })}
         </div>
       )
       return list
