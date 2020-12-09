@@ -238,7 +238,7 @@ class Index extends Component {
             )}
           </Col>
         </Row>
-        <div className={styles.push_wrapper} style={{ bottom: '30vh' }}>
+        <div className={styles.push_wrapper} style={{ bottom: '10vh' }}>
           <div className="screen" style={{ width: '100vw', height: '80vh' }}></div>
         </div>
         <Button className={styles.showDrawerButton} onClick={() => this.showDrawer()}></Button>
