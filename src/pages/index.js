@@ -8,7 +8,7 @@ import BulletScreen, { StyledBullet } from 'rc-bullets';
 
 
 import styles from './index.less';
-import yearImg from '../assets/2020.png';
+import yearImg from '../assets/2021.png';
 import Rewarders from './components/Rewarders'
 
 @connect(({ lottery }) => ({
