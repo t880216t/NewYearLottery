@@ -1,24 +1,24 @@
 import json, base64
 from flask import Blueprint, request
-from .. import socketio
+from .. import socketio, app
 from logzero import logger
 from wxpy import *
 
 wxChat = Blueprint('wxChat', __name__)
 
+'''
+weixin机器人初始化
+'''
 bot = Bot(cache_path=True)
-
-my_groups = []
+listen_groups = []
 bot.groups(update=True, contact_only=False)
-listen_group = bot.groups().search('666')[0]
-listen_group.update_group(members_details=True)
-my_groups.append(listen_group)
+search_group = bot.groups().search(app.config['WX_GROUP'])
+if len(search_group) > 0:
+  listen_group = search_group[0]
+  listen_group.update_group(members_details=True)
+  listen_groups.append(listen_group)
 
-
-def ByteToHex(bins):
-  return ''.join(["%02X" % x for x in bins]).strip()
-
-@bot.register(my_groups[0], except_self=False)
+@bot.register(listen_groups[0], except_self=False)
 def system_msg(msg):
     """接收系统消息"""
     user = msg.member
