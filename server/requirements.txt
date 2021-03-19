@@ -16,6 +16,6 @@ python-engineio==3.14.2
 python-socketio==4.6.1
 requests==2.25.0
 six==1.15.0
-urllib3==1.26.2
+urllib3==1.26.3
 Werkzeug==1.0.1
 wxpy==0.3.9.8
