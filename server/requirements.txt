@@ -7,7 +7,7 @@ future==0.18.2
 idna==2.10
 itchat==1.2.32
 itsdangerous==1.1.0
-Jinja2==2.11.2
+Jinja2==2.11.3
 logzero==1.6.3
 MarkupSafe==1.1.1
 pypng==0.0.20
